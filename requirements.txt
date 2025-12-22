@@ -1,0 +1,7 @@
+matplotlib
+pandas
+plotly
+pydantic
+pydantic-settings
+python-multipart
+streamlit
