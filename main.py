@@ -18,31 +18,42 @@ st.markdown("""
 c1, c2, c3 = st.columns(3)
 
 with c1:
-    st.markdown("### 1. Upload Data")
-    st.write("Simply drag & drop your CSV file. We support flexible schemas including transactions, sales, and customer data.")
-    st.page_link("pages/1_Upload_Data.py", label="Start Upload", icon="📂")
+    st.markdown("### 📂 1. Upload Data")
+    st.write("""
+    Securely upload your business records in Excel format. 
+    Our system supports multiple sheets including **Sales**, **Expenses**, **Inventory**, and **Staff**.
+    """)
+    st.page_link("pages/1_Upload_Data.py", label="Get Started", icon="🚀")
 
 with c2:
-    st.markdown("### 2. Auto-Mapping")
-    st.write("Our intelligent rule-engine automatically detects your columns (Dates, Revenue, Quantity) so you don't have to.")
+    st.markdown("### 🔍 2. Intelligent Mapping")
+    st.write("""
+    Forget manual data entry. Our engine automatically parses your schemas, 
+    validates data types, and prepares your datasets for real-time analysis.
+    """)
     
 with c3:
-    st.markdown("### 3. Executive Insights")
-    st.write("Unlock immediate value with a premium dashboard featuring Time Series, Cohort Analysis, and Segmentation.")
-    st.page_link("pages/2_Analytics.py", label="View Dashboard", icon="📊")
+    st.markdown("### 📊 3. Premium Analytics")
+    st.write("""
+    Access high-level executive summaries and deep-dive technical charts. 
+    Visualize trends, monitor stock levels, and optimize staff performance instantly.
+    """)
+    st.page_link("pages/2_Analytics.py", label="View Analytics", icon="📈")
 
 st.markdown("---")
 
 # About Section
-st.subheader("💡 About This Project")
+st.subheader("💡 Why Guided Analytics?")
 st.write("""
-This platform is designed to eliminate the repetitive work of building one-off dashboards. 
-Review your **Sales Performance**, understand **Customer Demographics**, and optimize your **Product Strategy** all in one place.
+This platform is engineered to transform fragmented data into a unified business command center. 
+Whether you're tracking daily revenue or long-term operational costs, we provide the tools to make data-driven decisions.
 
-**Key Features:**
-- 🛡️ **No AI Hallucinations**: Deterministic, rule-based logic ensures 100% accuracy.
-- 🎨 **Premium UI**: Designed for executives with clean, dark-mode aesthetics.
-- ✨ **Interactive Charts**: Drill down into data with Plotly-powered visualizations.
+**✨ Key Features:**
+- 🛡️ **Deterministic Logic**: No AI hallucinations. Every number is calculated with 100% mathematical precision.
+- 🎨 **Executive Aesthetics**: A clean, high-contrast dark mode designed for focus and readability.
+- 📈 **Dynamic Visualizations**: interactive Plotly charts that allow you to hover, zoom, and filter by any period.
+- ⚡ **Zero Setup**: Just upload your data and start analyzing immediately.
 """)
 
-st.info("👈 Use the **Sidebar** to navigate between steps.")
+st.info("👈 Use the **Sidebar** to explore your data or jump straight into the dashboard.")
+

@@ -43,6 +43,11 @@ def load_css():
                 font-size: 1.8rem;
                 font-weight: 700;
             }
+            .metric-description {
+                color: #7d8597;
+                font-size: 0.9rem;
+                margin-top: 5px;
+            }
             
             /* Headers */
             h1, h2, h3 {
@@ -77,11 +82,13 @@ def project_header():
     st.markdown("# 🚀 Guided Analytics Platform")
     st.markdown("---")
 
-def metric_card(col, title, value, prefix="", suffix=""):
+def metric_card(col, title, value, description=None, prefix="", suffix=""):
     """Renders a styled metric card."""
+    desc_html = f'<div class="metric-description">{description}</div>' if description else ""
     col.markdown(f"""
     <div class="metric-card">
         <div class="metric-title">{title}</div>
         <div class="metric-value">{prefix}{value}{suffix}</div>
+        {desc_html}
     </div>
     """, unsafe_allow_html=True)

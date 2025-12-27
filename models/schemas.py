@@ -1,24 +1,43 @@
-from typing import List, Any
-from pydantic import BaseModel, Field
-from enum import StrEnum
+from typing import List, Optional
+from pydantic import BaseModel
+from datetime import datetime
 
-class CanonicalColumn(StrEnum):
-    TRANSACTION_ID = "transaction_id"
-    ORDER_DATE = "order_date"
-    CUSTOMER_ID = "customer_id"
-    GENDER = "gender"
-    AGE = "age"
-    PRODUCT_CATEGORY = "product_category"
-    QUANTITY = "quantity"
-    PRICE_PER_UNIT = "price_per_unit"
-    TOTAL_AMOUNT = "total_amount"
+# --- Data Models for Branch Analytics ---
 
-class ColumnProfile(BaseModel):
-    column_name: str
-    percent_missing: float = Field(..., ge=0, le=100)
-    unique_count: int
-    sample_values: List[Any]
+class SalesSchema(BaseModel):
+    Invoice_ID: str
+    Date: datetime
+    Product: str
+    Category: str
+    Quantity: int
+    Unit_Price: int
+    Branch: str
+    Total_Sales: int
 
-class ValidationError(BaseModel):
-    column: str = ""
-    message: str
+class ExpenseSchema(BaseModel):
+    Expense_ID: str
+    Date: datetime
+    Expense_Type: str
+    Amount: int
+    Branch: str
+
+class InventorySchema(BaseModel):
+    SKU: str
+    Product: str
+    Stock_In: int
+    Stock_Out: int
+    Branch: str
+
+class StaffSchema(BaseModel):
+    Employee_ID: str
+    Role: str
+    Salary: int
+    Branch: str
+
+# Helper to map sheet names to schemas
+SHEET_SCHEMAS = {
+    'Sales': SalesSchema,
+    'Expenses': ExpenseSchema,
+    'Inventory': InventorySchema,
+    'Staff': StaffSchema
+}
